@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="SmartSounder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmartSounder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    mc:Ignorable="d" DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel>
+            <ComboBox x:Name="languages" Width="200" ItemsSource="{Binding Languages}" SelectedIndex="{Binding SelectedLanguageIndex, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox x:Name="playlist" Width="200" RelativePanel.RightOf="languages" 
+                      SelectedIndex="{Binding CurrentIndex, Mode=TwoWay}"
+                      ItemsSource="{Binding Playlist}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock x:Name="textResult" RelativePanel.Below="languages" Text="{x:Bind MainVm.Text, Mode=OneWay}" FontSize="20"/>
+            <ScrollViewer x:Name="sv" Margin="30,10" Background="Black" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="textResult" RelativePanel.Above="commandStatusBoder" VerticalSnapPointsAlignment="Near" VerticalSnapPointsType="Mandatory">
+                <TextBlock x:Name="tbLog" IsHitTestVisible="False" SizeChanged="TextBlock_SizeChanged" Foreground="LightGreen" Margin="10,5" Text="{x:Bind MainVm.LogStr, Mode=OneWay}" ></TextBlock>
+            </ScrollViewer>
+            <!--<ListView x:Name="listView" ItemsSource="{Binding Logs}" Foreground="LightGreen" IsHitTestVisible="False" SizeChanged="TextBlock_SizeChanged" Margin="30,10" Background="Black" RelativePanel.Below="textResult" RelativePanel.Above="commandStatusBoder" Width="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Foreground="LightGreen" Text="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+            <Border x:Name="commandStatusBoder" RelativePanel.Above="statusBoder"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    Height="80" Background="{x:Bind MainVm.StatusColor, Mode=OneWay}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Text="Command Recognizer Status:" Margin="0,0,10,0" />
+                    <TextBlock x:Name="txtCommand" Text="{x:Bind MainVm.CommandRecStatus, Mode=OneWay}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border x:Name="statusBoder" RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    Height="80" Background="{x:Bind MainVm.StatusColor, Mode=OneWay}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Text="Wake up Recognizer Status:" Margin="0,0,10,0" />
+                    <TextBlock x:Name="txtStatus" Text="{x:Bind MainVm.SpeechStatus, Mode=OneWay}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <MediaElement x:Name="mediaElement" RelativePanel.Below="statusBoder" AutoPlay="False"/>
+            <MediaElement x:Name="musicElement" RelativePanel.Below="statusBoder" AutoPlay="False"/>
+        </RelativePanel>
+
+    </Grid>
+</Page>

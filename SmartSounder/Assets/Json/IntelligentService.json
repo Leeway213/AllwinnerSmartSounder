@@ -1,0 +1,337 @@
+{
+  "id": "",
+  "name": "",
+  "services": [
+    {
+      "type": "builtin",
+      "intents": [
+        {
+          "intent": "alarm",
+          "actions": [
+            {
+              "action": "alarm_other"
+            },
+            {
+              "action": "delete_alarm"
+            },
+            {
+              "action": "find_alarm"
+            },
+            {
+              "action": "set_alarm"
+            },
+            {
+              "action": "snooze"
+            },
+            {
+              "action": "time_remaining"
+            },
+            {
+              "action": "turn_off_alarm"
+            }
+          ]
+        },
+        {
+          "intent": "calendar",
+          "actions": [
+            {
+              "action": "change_calendar_entry"
+            },
+            {
+              "action": "check_availability"
+            },
+            {
+              "action": "connect_to_meeting"
+            },
+            {
+              "action": "create_calendar_entry"
+            },
+            {
+              "action": "delete_calendar_entry"
+            },
+            {
+              "action": "find_calendar_entry"
+            },
+            {
+              "action": "find_calendar_when"
+            },
+            {
+              "action": "find_calendar_where"
+            },
+            {
+              "action": "find_calendar_who"
+            },
+            {
+              "action": "find_calendar_why"
+            },
+            {
+              "action": "find_duration"
+            },
+            {
+              "action": "time_remaining"
+            }
+          ]
+        },
+        {
+          "intent": "communication",
+          "actions": [
+            {
+              "action": "add_contact"
+            },
+            {
+              "action": "answer_phone"
+            },
+            {
+              "action": "call_voice_mail"
+            },
+            {
+              "action": "find_contact"
+            },
+            {
+              "action": "forwarding_off"
+            },
+            {
+              "action": "forwarding_on"
+            },
+            {
+              "action": "ignore_incoming"
+            },
+            {
+              "action": "ignore_with_message"
+            },
+            {
+              "action": "make_call"
+            },
+            {
+              "action": "press_key"
+            },
+            {
+              "action": "read_aloud"
+            },
+            {
+              "action": "redial"
+            },
+            {
+              "action": "send_email"
+            },
+            {
+              "action": "send_text"
+            },
+            {
+              "action": "speakerphone_off"
+            },
+            {
+              "action": "speakerphone_on"
+            }
+          ]
+        },
+        {
+          "intent": "mystuff",
+          "actions": [
+            {
+              "action": "find_attachment"
+            },
+            {
+              "action": "find_my_stuff"
+            },
+            {
+              "action": "transform_my_stuff"
+            }
+          ]
+        },
+        {
+          "intent": "ondevice",
+          "actions": [
+            {
+              "action": "open_setting"
+            },
+            {
+              "action": "pause"
+            },
+            {
+              "action": "play_music"
+            },
+            {
+              "action": "recognize_song"
+            },
+            {
+              "action": "repeat"
+            },
+            {
+              "action": "resume"
+            },
+            {
+              "action": "skip_back"
+            },
+            {
+              "action": "skip_forward"
+            },
+            {
+              "action": "turn_off_setting"
+            },
+            {
+              "action": "turn_on_setting"
+            }
+          ]
+        },
+        {
+          "intent": "places",
+          "actions": [
+            {
+              "action": "add_favorite_place"
+            },
+            {
+              "action": "book_public_transportation"
+            },
+            {
+              "action": "book_taxi"
+            },
+            {
+              "action": "check_area_traffic"
+            },
+            {
+              "action": "check_into_place"
+            },
+            {
+              "action": "check_route_traffic"
+            },
+            {
+              "action": "find_place"
+            },
+            {
+              "action": "get_address"
+            },
+            {
+              "action": "get_coupon"
+            },
+            {
+              "action": "get_distance"
+            },
+            {
+              "action": "get_hours"
+            },
+            {
+              "action": "get_menu"
+            },
+            {
+              "action": "get_phone_number"
+            },
+            {
+              "action": "get_price_range"
+            },
+            {
+              "action": "get_reviews"
+            },
+            {
+              "action": "get_route"
+            },
+            {
+              "action": "get_star_rating"
+            },
+            {
+              "action": "get_transportation_schedule"
+            },
+            {
+              "action": "get_travel_time"
+            },
+            {
+              "action": "make_call"
+            },
+            {
+              "action": "rate_place"
+            },
+            {
+              "action": "show_map"
+            },
+            {
+              "action": "takes_reservations"
+            }
+          ]
+        },
+        {
+          "intent": "reminder",
+          "actions": [
+            {
+              "action": "change_reminder"
+            },
+            {
+              "action": "create_single_reminder"
+            },
+            {
+              "action": "delete_reminder"
+            },
+            {
+              "action": "find_reminder"
+            },
+            {
+              "action": "read_aloud"
+            },
+            {
+              "action": "snooze"
+            },
+            {
+              "action": "turn_off_reminder"
+            }
+          ]
+        },
+        {
+          "intent": "weather",
+          "actions": [
+            {
+              "action": "change_temperature_unit"
+            },
+            {
+              "action": "check_weather"
+            },
+            {
+              "action": "check_weather_facts"
+            },
+            {
+              "action": "compare_weather"
+            },
+            {
+              "action": "get_frequent_locations"
+            },
+            {
+              "action": "get_weather_advisory"
+            },
+            {
+              "action": "get_weather_maps"
+            },
+            {
+              "action": "question_weather"
+            },
+            {
+              "action": "show_weather_progression"
+            }
+          ]
+        },
+        {
+          "intent": "none"
+        }
+      ],
+      "entities": [
+        {
+          "entity": "alarm",
+          "parameters": [
+            {
+              "parameter": "alarm_state"
+            },
+            {
+              "parameter": "duration"
+            },
+            {
+              "parameter": "start_date"
+            },
+            {
+              "parameter": "start_time"
+            },
+            {
+              "parameter": "title"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

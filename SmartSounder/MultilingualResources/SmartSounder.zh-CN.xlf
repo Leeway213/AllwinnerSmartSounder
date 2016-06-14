@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="zh-CN" original="SMARTSOUNDER/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1605.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="SMARTSOUNDER/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="cannot_find_any_music" translate="yes" xml:space="preserve">
+          <source>Sorry! Cannot find any music in your device</source>
+          <target state="translated">很抱歉 ！您的设备中找不到任何音乐</target>
+        </trans-unit>
+        <trans-unit id="cannot_find_any_music_requred" translate="yes" xml:space="preserve">
+          <source>Sorry! Cannot find any music that you want</source>
+          <target state="translated" state-qualifier="mt-suggestion">抱歉 ！找不到任何你想要的音乐</target>
+        </trans-unit>
+        <trans-unit id="request_audio_failed" translate="yes" xml:space="preserve">
+          <source>Request Audio Capture Permission failed!</source>
+          <target state="translated">无法获取音频捕捉设备权限！</target>
+        </trans-unit>
+        <trans-unit id="city_is_unknown" translate="yes" xml:space="preserve">
+          <source>Sorry, the city of {0} is unknown!</source>
+          <target state="translated">对不起！找不到{0}这个城市！</target>
+        </trans-unit>
+        <trans-unit id="weather_context" translate="yes" xml:space="preserve">
+          <source>{0}, the weather of {1} is that ....{2}</source>
+          <target state="translated">{0}{1} 天气：{2}</target>
+        </trans-unit>
+        <trans-unit id="cannot_catch_what_you_said" translate="yes" xml:space="preserve">
+          <source>Cannot catch what you said</source>
+          <target state="translated">对不起，我没有听清楚</target>
+        </trans-unit>
+        <trans-unit id="cannot_catch_what_you_want" translate="yes" xml:space="preserve">
+          <source>Sorry! Cannot catch what you want</source>
+          <target state="translated">对不起！找不到你想要的！</target>
+        </trans-unit>
+        <trans-unit id="network_failed" translate="yes" xml:space="preserve">
+          <source>Hi! I am AllWinner Smart Sounder. I cannot visit internet now. Would you like to connect? Yes or No?</source>
+          <target state="translated">嗨！我是全志智能音箱。当前还没有连接网络，要现在联网吗？需要还是不需要？</target>
+        </trans-unit>
+        <trans-unit id="welcome_back" translate="yes" xml:space="preserve">
+          <source>Hello! Nice to meet you again!</source>
+          <target state="translated">嘿！非常高兴，我们又见面了！</target>
+        </trans-unit>
+        <trans-unit id="umbrella" translate="yes" xml:space="preserve">
+          <source>umbrella</source>
+          <target state="new">umbrella</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+  <file datatype="xml" source-language="en-US" target-language="zh-CN" original="SMARTSOUNDER/STRINGS/EN-US/WAKEUPSPEECHRESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1605.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="SMARTSOUNDER/STRINGS/EN-US/WAKEUPSPEECHRESOURCES.RESW" datatype="resx">
+        <trans-unit id="HeyCortana" translate="yes" xml:space="preserve">
+          <source>hey cortana</source>
+          <target state="new">hey cortana</target>
+        </trans-unit>
+        <trans-unit id="String1" translate="yes" xml:space="preserve">
+          <source>hey catano</source>
+          <target state="new">hey catano</target>
+        </trans-unit>
+        <trans-unit id="String2" translate="yes" xml:space="preserve">
+          <source>cortana</source>
+          <target state="new">cortana</target>
+        </trans-unit>
+        <trans-unit id="String3" translate="yes" xml:space="preserve">
+          <source>hello cortana</source>
+          <target state="new">hello cortana</target>
+        </trans-unit>
+        <trans-unit id="String4" translate="yes" xml:space="preserve">
+          <source>hi cortana</source>
+          <target state="new">hi cortana</target>
+        </trans-unit>
+        <trans-unit id="String5" translate="yes" xml:space="preserve">
+          <source>hey certana</source>
+          <target state="new">hey certana</target>
+        </trans-unit>
+        <trans-unit id="String6" translate="yes" xml:space="preserve">
+          <source>hey cartona</source>
+          <target state="new">hey cartona</target>
+        </trans-unit>
+        <trans-unit id="String7" translate="yes" xml:space="preserve">
+          <source>nihao xiaona</source>
+          <target state="new">nihao xiaona</target>
+        </trans-unit>
+        <trans-unit id="String8" translate="yes" xml:space="preserve">
+          <source>hey anna</source>
+          <target state="new">hey anna</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

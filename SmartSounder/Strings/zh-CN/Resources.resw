@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="cannot_find_any_music" xml:space="preserve">
+    <value>很抱歉 ！您的设备中找不到任何音乐</value>
+  </data>
+  <data name="cannot_find_any_music_requred" xml:space="preserve">
+    <value>抱歉 ！找不到任何你想要的音乐</value>
+  </data>
+  <data name="request_audio_failed" xml:space="preserve">
+    <value>无法获取音频捕捉设备权限！</value>
+  </data>
+  <data name="city_is_unknown" xml:space="preserve">
+    <value>对不起！找不到{0}这个城市！</value>
+  </data>
+  <data name="weather_context" xml:space="preserve">
+    <value>{0}{1} 天气：{2}</value>
+  </data>
+  <data name="cannot_catch_what_you_said" xml:space="preserve">
+    <value>对不起，我没有听清楚</value>
+  </data>
+  <data name="cannot_catch_what_you_want" xml:space="preserve">
+    <value>对不起！找不到你想要的！</value>
+  </data>
+  <data name="network_failed" xml:space="preserve">
+    <value>嗨！我是全志智能音箱。当前还没有连接网络，要现在联网吗？需要还是不需要？</value>
+  </data>
+  <data name="welcome_back" xml:space="preserve">
+    <value>嘿！非常高兴，我们又见面了！</value>
+  </data>
+</root>
