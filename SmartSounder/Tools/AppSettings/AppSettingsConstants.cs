@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Media.SpeechRecognition;
 
 namespace SmartSounder.Tools
 {
@@ -18,6 +19,12 @@ namespace SmartSounder.Tools
         {
             get
             {
+                if (AppSettings.GetValue(LANGUAGE_SETTING) == null)
+                {
+                    var language = SpeechRecognizer.SystemSpeechLanguage.LanguageTag;
+                    AppSettings.SetValue(LANGUAGE_SETTING, language);
+                    return SpeechRecognizer.SystemSpeechLanguage.LanguageTag;
+                }
                 return AppSettings.GetValue(LANGUAGE_SETTING) as string;
             }
         }

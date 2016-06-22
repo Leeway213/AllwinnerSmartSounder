@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HeyCortana" xml:space="preserve">
+    <value>你好小娜</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>你好小拉</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>你好小哈</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>嘿小哈</value>
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value>你好小大</value>
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value>你好小妈</value>
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value>你好小闹</value>
+  </data>
+</root>

@@ -1,3 +1,3 @@
-MainPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\bin\ARM\Debug\SmartSounder_1.0.0.0_ARM_Debug.appx
-SymbolPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\AppPackages\SmartSounder_1.0.0.0_Debug_Test\SmartSounder_1.0.0.0_ARM_Debug.appxsym
-ResourcePack=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\bin\ARM\Debug\SmartSounder_1.0.0.0_language-zh-hans.appx
+MainPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\bin\ARM\Debug\SmartSounder_1.0.1.0_ARM_Debug.appx
+SymbolPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\AppPackages\SmartSounder_1.0.1.0_Debug_Test\SmartSounder_1.0.1.0_ARM_Debug.appxsym
+ResourcePack=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\bin\ARM\Debug\SmartSounder_1.0.1.0_language-zh-hans.appx

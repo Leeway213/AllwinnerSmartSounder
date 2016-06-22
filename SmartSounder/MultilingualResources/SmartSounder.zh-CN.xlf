@@ -44,7 +44,7 @@
         </trans-unit>
         <trans-unit id="umbrella" translate="yes" xml:space="preserve">
           <source>umbrella</source>
-          <target state="new">umbrella</target>
+          <target state="translated">伞</target>
         </trans-unit>
       </group>
     </body>
@@ -57,31 +57,31 @@
       <group id="SMARTSOUNDER/STRINGS/EN-US/WAKEUPSPEECHRESOURCES.RESW" datatype="resx">
         <trans-unit id="HeyCortana" translate="yes" xml:space="preserve">
           <source>hey cortana</source>
-          <target state="new">hey cortana</target>
+          <target state="translated">你好小娜</target>
         </trans-unit>
         <trans-unit id="String1" translate="yes" xml:space="preserve">
           <source>hey catano</source>
-          <target state="new">hey catano</target>
+          <target state="translated">你好小拉</target>
         </trans-unit>
         <trans-unit id="String2" translate="yes" xml:space="preserve">
           <source>cortana</source>
-          <target state="new">cortana</target>
+          <target state="translated">你好小哈</target>
         </trans-unit>
         <trans-unit id="String3" translate="yes" xml:space="preserve">
           <source>hello cortana</source>
-          <target state="new">hello cortana</target>
+          <target state="translated">嘿小哈</target>
         </trans-unit>
         <trans-unit id="String4" translate="yes" xml:space="preserve">
           <source>hi cortana</source>
-          <target state="new">hi cortana</target>
+          <target state="translated">你好小大</target>
         </trans-unit>
         <trans-unit id="String5" translate="yes" xml:space="preserve">
           <source>hey certana</source>
-          <target state="new">hey certana</target>
+          <target state="translated">你好小妈</target>
         </trans-unit>
         <trans-unit id="String6" translate="yes" xml:space="preserve">
           <source>hey cartona</source>
-          <target state="new">hey cartona</target>
+          <target state="translated">你好小闹</target>
         </trans-unit>
         <trans-unit id="String7" translate="yes" xml:space="preserve">
           <source>nihao xiaona</source>

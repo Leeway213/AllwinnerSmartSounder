@@ -103,6 +103,7 @@ namespace SmartSounder
                         mediaElement.AutoPlay = true;
                         mediaElement.IsLooping = false;
                         mediaElement.MediaEnded += MediaElement_MediaEnded;
+                        mediaElement.MediaFailed += MediaElement_MediaFailed;
                         var speechStream = await SpeechSynthesisHelper.TextToSpeechAsync(args.Text);
                         mediaElement.SetSource(speechStream, speechStream.ContentType);
                         mediaElement.Play();
@@ -111,6 +112,11 @@ namespace SmartSounder
                         break;
                 }
             });
+
+        }
+
+        private void MediaElement_MediaFailed(object sender, ExceptionRoutedEventArgs e)
+        {
 
         }
 

@@ -39,4 +39,7 @@
   <data name="welcome_back" xml:space="preserve">
     <value>嘿！非常高兴，我们又见面了！</value>
   </data>
+  <data name="umbrella" xml:space="preserve">
+    <value>伞</value>
+  </data>
 </root>
