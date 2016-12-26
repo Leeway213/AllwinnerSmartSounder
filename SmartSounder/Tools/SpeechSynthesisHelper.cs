@@ -39,7 +39,7 @@ namespace SmartSounder.Tools
                 {
                     case LanguageType.Chinese:
                         result = string.Format(str, "zh-CN", text);
-                        voice = voices.FirstOrDefault(p => p.Gender == VoiceGender.Male && new Language(p.Language).LanguageTag.Contains("zh"));
+                        voice = voices.FirstOrDefault(p => p.Gender == VoiceGender.Female && new Language(p.Language).LanguageTag.Contains("zh"));
                         break;
                     case LanguageType.English:
                         result = string.Format(str, "en-US", text);

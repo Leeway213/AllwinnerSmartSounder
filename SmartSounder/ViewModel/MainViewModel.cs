@@ -1207,13 +1207,13 @@ namespace SmartSounder.ViewModel
         /// <summary>
         /// 在UI上实时更新识别到的命令语句
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void Rec_HypothesisGenerated(SpeechRecognizer sender, SpeechRecognitionHypothesisGeneratedEventArgs args)
-        {
-            UpdateText(args.Hypothesis.Text);
-            Log("Command Hypothesis:" + args.Hypothesis.Text);
-        }
+        /// <param name = "sender" ></ param >
+        /// < param name="args"></param>
+        //private void Rec_HypothesisGenerated(SpeechRecognizer sender, SpeechRecognitionHypothesisGeneratedEventArgs args)
+        //{
+        //    UpdateText(args.Hypothesis.Text);
+        //    Log("Command Hypothesis:" + args.Hypothesis.Text);
+        //}
 
         /// <summary>
         /// 识别唤醒语句
@@ -1430,64 +1430,64 @@ namespace SmartSounder.ViewModel
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private async void Rec_StateChanged(SpeechRecognizer sender, SpeechRecognizerStateChangedEventArgs args)
-        {
-            Log("Command Recognizer Status:" + args.State.ToString());
-            if (args.State == SpeechRecognizerState.Idle)
-            {
-                //NotifyWithSound(this, new NotifyWithSoundEventArgs() { NoticeType = NoticeType.Thinking });
-                Notify(NoticeType.Thinking);
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="args"></param>
+        //private async void Rec_StateChanged(SpeechRecognizer sender, SpeechRecognizerStateChangedEventArgs args)
+        //{
+        //    Log("Command Recognizer Status:" + args.State.ToString());
+        //    if (args.State == SpeechRecognizerState.Idle)
+        //    {
+        //        //NotifyWithSound(this, new NotifyWithSoundEventArgs() { NoticeType = NoticeType.Thinking });
+        //        Notify(NoticeType.Thinking);
 
-                await Task.Factory.StartNew(async () =>
-                {
-                    bool result = ThinkResetEvent.WaitOne(10000);
-                    if (!result)
-                    {
-                        string text = "";
-                        await App.MainFrame.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                        {
-                            text = AppResources.cannot_catch_what_you_said;
-                        });
-                        //NotifyWithSound(this, new NotifyWithSoundEventArgs() { NoticeType = NoticeType.Speech, Text = text });
-                        Notify(NoticeType.Speech, text);
+        //        await Task.Factory.StartNew(async () =>
+        //        {
+        //            bool result = ThinkResetEvent.WaitOne(10000);
+        //            if (!result)
+        //            {
+        //                string text = "";
+        //                await App.MainFrame.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        //                {
+        //                    text = AppResources.cannot_catch_what_you_said;
+        //                });
+        //                //NotifyWithSound(this, new NotifyWithSoundEventArgs() { NoticeType = NoticeType.Speech, Text = text });
+        //                Notify(NoticeType.Speech, text);
 
 
 
-                        //if (rec.State != SpeechRecognizerState.Idle)
-                        //{
-                        //    await rec.ContinuousRecognitionSession.CancelAsync();
-                        //}
-                        if (isPlaying)
-                        {
-                            Log("等待");
-                            if (SpeechAndMusicResetEvent.WaitOne(5000))
-                            {
-                                Log("释放");
-                                MediaController.Current.CurrentPlayer.Play();
-                            }
-                        }
-                    }
+        //                //if (rec.State != SpeechRecognizerState.Idle)
+        //                //{
+        //                //    await rec.ContinuousRecognitionSession.CancelAsync();
+        //                //}
+        //                if (isPlaying)
+        //                {
+        //                    Log("等待");
+        //                    if (SpeechAndMusicResetEvent.WaitOne(5000))
+        //                    {
+        //                        Log("释放");
+        //                        MediaController.Current.CurrentPlayer.Play();
+        //                    }
+        //                }
+        //            }
 
-                    try
-                    {
-                        //await _speechRecognizerForWakeUp.ContinuousRecognitionSession.StartAsync();
-                        await WakeUpSpeechRecognizer.StartAsync();
-                    }
-                    catch (Exception)
-                    {
+        //            try
+        //            {
+        //                //await _speechRecognizerForWakeUp.ContinuousRecognitionSession.StartAsync();
+        //                await WakeUpSpeechRecognizer.StartAsync();
+        //            }
+        //            catch (Exception)
+        //            {
 
-                        throw;
-                    }
-                });
+        //                throw;
+        //            }
+        //        });
 
-            }
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// 在UI上实时更新语音唤醒器状态
