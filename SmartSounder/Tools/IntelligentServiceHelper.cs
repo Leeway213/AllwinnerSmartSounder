@@ -76,6 +76,7 @@ namespace SmartSounder.Tools
         QuestionWeather,
         ShowWeatherProgression,
         CheckAirQuality,
+        SwitchLanguage,
     }
 
     public enum CortanaIntentType
@@ -227,6 +228,8 @@ namespace SmartSounder.Tools
             }
             switch (intent.intent)
             {
+                case "sounder.intent.settings.switch_language":
+                    return IntentType.SwitchLanguage;
                 case "AddToFavorite":
                     return IntentType.AddToFavorite;
                 case "sounder.intent.media.skip_back":

@@ -27,33 +27,35 @@ namespace SmartSounder.Tools.SpeechRecognizers
                 }
                 return _wakeUpSpeech;
             }
+            private set
+            {
+                _wakeUpSpeech = value;
+            }
         }
 
 
         private WakeUpSpeechRecognizer() : base(SPEECH_RESOURCE)
         {
             InitializeRecognizer();
-            DispatcherHelper.CheckBeginInvokeOnUI(() =>
-            {
-                WakeUpString = ResourceMap.GetValue("HeyCortana", ResourceContext).ValueAsString;
-            });
         }
 
         private async void InitializeRecognizer()
         {
-            _resetEvent.WaitOne(1000);
+            _resetEvent.WaitOne(3000);
+            string wakeupStr = ResourceMap.GetValue("HeyCortana", ResourceContext).ValueAsString;
             _recognizer.Constraints.Add(
                 new SpeechRecognitionListConstraint(
                     new List<string>()
                     {
-                        ResourceMap.GetValue("HeyCortana", ResourceContext).ValueAsString
+                        wakeupStr
                     }, "Wakeup"));
 
             List<string> wrongWakeStrings = new List<string>();
             foreach (var item in ResourceMap)
             {
-                string str = item.Value.Candidates.First().ValueAsString;
-                if (str != "hey cortana")
+                //string str = item.Value.Candidates.First().ValueAsString;
+                string str = ResourceMap.GetValue(item.Key, ResourceContext).ValueAsString;
+                if (str != wakeupStr)
                 {
                     wrongWakeStrings.Add(str);
                 }
@@ -66,6 +68,10 @@ namespace SmartSounder.Tools.SpeechRecognizers
                 throw new Exception();
             }
 
+            DispatcherHelper.CheckBeginInvokeOnUI(() =>
+            {
+                WakeUpString = ResourceMap.GetValue("HeyCortana", ResourceContext).ValueAsString;
+            });
         }
 
 
@@ -85,12 +91,22 @@ namespace SmartSounder.Tools.SpeechRecognizers
         {
             try
             {
-                await Instance._recognizer.ContinuousRecognitionSession.CancelAsync();
+                if (Instance._recognizer.State != SpeechRecognizerState.Idle)
+                {
+                    await Instance._recognizer.ContinuousRecognitionSession.CancelAsync();
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        public static void Dispose()
+        {
+            Instance.BaseDispose();
+            Instance = null;
+        }
+
     }
 }

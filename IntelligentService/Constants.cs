@@ -8,9 +8,9 @@ namespace IntelligentService
 {
     public class Constants
     {
-        public const string BASE_URL = @"https://api.projectoxford.ai/luis/v1/application";
+        public const string BASE_URL = @"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/";
 
-        public const string SUBSCRIPTION_KEY = "e91ae19868de4e4f96acaaa10de38fa1";
+        public const string SUBSCRIPTION_KEY = "585dc7a3da1649cba4dc3ae41995c477";
 
         public const string EN_APP_ID = "7e7d92b1-8c06-48b0-bd74-b71ab91f0cb8";
 

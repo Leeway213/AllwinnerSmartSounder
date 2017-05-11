@@ -8,8 +8,5 @@ namespace IntelligentService.Models
         [DataMember]
         public string intent { get; set; }
 
-        [DataMember]
-        public double score { get; set; }
-
     }
 }

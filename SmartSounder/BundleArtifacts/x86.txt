@@ -1,2 +1,2 @@
-MainPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\bin\ARM\Release\x86\SmartSounder\SmartSounder_1.0.0.0_x86.appx
-SymbolPackage=D:\我的文档\Visual Studio 2015\Projects\SmartSounder\SmartSounder\AppPackages\SmartSounder_1.0.0.0_Test\SmartSounder_1.0.0.0_x86.appxsym
+MainPackage=E:\Github\AllwinnerSmartSounder\SmartSounder\bin\x86\Debug\SmartSounder_1.0.3.0_x86_Debug.appx
+SymbolPackage=E:\Github\AllwinnerSmartSounder\SmartSounder\AppPackages\SmartSounder_1.0.3.0_Debug_Test\SmartSounder_1.0.3.0_x86_Debug.appxsym

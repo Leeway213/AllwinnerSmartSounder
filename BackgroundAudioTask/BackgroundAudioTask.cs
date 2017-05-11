@@ -565,7 +565,7 @@ namespace BackgroundAudioTask
         {
             try
             {
-                var index = (currentIndex - 1) % playlist.Count;
+                var index = (currentIndex - 1 + playlist.Count) % playlist.Count;
                 PlayIndex(index);
                 CurrentPlayItemChanged?.Invoke(playlist, new CurrentMediaPlayItemChangedEventArgs() { NewItem = playlist[index] });
             }

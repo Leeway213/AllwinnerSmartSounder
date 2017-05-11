@@ -58,7 +58,6 @@ namespace SmartSounder
                 writer.Flush();
             }
 
-            MainVm.Dispose();
         }
 
         private async void MainVm_NotifyWithSound(object sender, NotifyWithSoundEventArgs args)

@@ -20,6 +20,10 @@ namespace SmartSounder.Tools.SpeechRecognizers
                 }
                 return _instance;
             }
+            private set
+            {
+                _instance = value;
+            }
         }
 
         private CommandSpeechRecognizer() : base()
@@ -55,12 +59,21 @@ namespace SmartSounder.Tools.SpeechRecognizers
         {
             try
             {
-                await Instance._recognizer.ContinuousRecognitionSession.CancelAsync();
+                if (Instance._recognizer.State != SpeechRecognizerState.Idle)
+                {
+                    await Instance._recognizer.ContinuousRecognitionSession.CancelAsync();
+                }
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        public static void Dispose()
+        {
+            Instance.BaseDispose();
+            Instance = null;
         }
 
     }

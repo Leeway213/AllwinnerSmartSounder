@@ -52,7 +52,7 @@ namespace SmartSounder.ViewModel
         Speech
     }
 
-    public class MainViewModel : ViewModelBase, IDisposable
+    public class MainViewModel : ViewModelBase
     {
         #region ResetEvent for thread sync
 
@@ -369,6 +369,18 @@ namespace SmartSounder.ViewModel
             });
         }
 
+        private void RemoveEventHandler()
+        {
+            WakeUpSpeechRecognizer.Instance.StateChanged -= WakeUpSpeech_StateChanged;
+            WakeUpSpeechRecognizer.Instance.HypothesisGenerated -= WakeUpSpeechRecognizer_HypothesisGenerated;
+            WakeUpSpeechRecognizer.Instance.ContinuousRecognitionSessionCompleted -= WakeUpContinuousRecognitionSessionCompleted;
+            WakeUpSpeechRecognizer.Instance.ContinuousRecognitionSessionResultGenerated -= WakeUpSpeech_ResultGenerated;
+
+            CommandSpeechRecognizer.Instance.StateChanged -= CommandSpeech_StateChanged;
+            CommandSpeechRecognizer.Instance.HypothesisGenerated -= CommandSpeech_HypothesisGenerated;
+            CommandSpeechRecognizer.Instance.ContinuousRecognitionSessionResultGenerated -= CommandSpeech_ResultGenerated;
+        }
+
         private void AddEventHandler()
         {
             WakeUpSpeechRecognizer.Instance.StateChanged += WakeUpSpeech_StateChanged;
@@ -493,6 +505,13 @@ namespace SmartSounder.ViewModel
                 //{
                 //    Log(ex.Message);
                 //}
+            }
+            else
+            {
+                if (WakeUpSpeechRecognizer.Instance.State == SpeechRecognizerState.Idle)
+                {
+                    await WakeUpSpeechRecognizer.StartAsync();
+                }
             }
 
             //var result = DualSpeeckRecResetEvent.WaitOne();
@@ -644,7 +663,7 @@ namespace SmartSounder.ViewModel
 
                 await Task.Factory.StartNew(async () =>
                 {
-                    AddEventHandler();
+                    //AddEventHandler();
                     //var ignore = Task.Delay(1000);
                     //ignore.Wait();
                     if (!IsOnline)
@@ -666,8 +685,8 @@ namespace SmartSounder.ViewModel
                         });
 
 
-                        SpeechAndMusicResetEvent.WaitOne();
-                        await InitializeRecognizer(speechLanguage);
+                        SpeechAndMusicResetEvent.WaitOne(2000);
+                        await InitializeRecognizer();
                     }
                 });
 
@@ -746,90 +765,15 @@ namespace SmartSounder.ViewModel
         /// </summary>
         /// <param name="recognizerLanguage"></param>
         /// <returns></returns>
-        private async Task InitializeRecognizer(Language recognizerLanguage)
+        private async Task InitializeRecognizer()
         {
             if (isInitializing) return;
 
             isInitializing = true;
 
-            AppSettings.SetValue(AppSettingsConstants.LANGUAGE_SETTING, recognizerLanguage.LanguageTag);
-
-            //if (_speechRecognizerForWakeUp != null)
-            //{
-            //    _speechRecognizerForWakeUp.StateChanged -= _speechRecognizer_StateChanged;
-            //    _speechRecognizerForWakeUp.ContinuousRecognitionSession.Completed -= ContinuousRecognitionSession_Completed;
-            //    //_speechRecognizerForWakeUp.ContinuousRecognitionSession.ResultGenerated -= ContinuousRecognitionSession_ResultGenerated;
-
-            //    this._speechRecognizerForWakeUp.Dispose();
-            //    this._speechRecognizerForWakeUp = null;
-            //}
-
             try
             {
-                //if (_speechRecognizerForCommand != null)
-                //{
-                //    _speechRecognizerForCommand.Dispose();
-                //    _speechRecognizerForCommand = null;
-                //}
-                //_speechRecognizerForCommand = new SpeechRecognizer(Languages[SelectedLanguageIndex]);
-                //await _speechRecognizerForCommand.CompileConstraintsAsync();
-                //_speechRecognizerForCommand.HypothesisGenerated += Rec_HypothesisGenerated;
-                //_speechRecognizerForCommand.StateChanged += Rec_StateChanged;
-                //_speechRecognizerForCommand.ContinuousRecognitionSession.ResultGenerated += ContinuousRecognitionSession_ResultGenerated1;
-                //_speechRecognizerForCommand.ContinuousRecognitionSession.AutoStopSilenceTimeout = new TimeSpan(0, 0, 2);
-                //_speechRecognizerForCommand.StateChanged += _speechRecognizerForCommand_StateChanged;
-
-
-
-                //_speechRecognizerForWakeUp = new SpeechRecognizer(recognizerLanguage);
-
-                //_speechRecognizerForWakeUp.StateChanged += _speechRecognizer_StateChanged;
-
-                //_speechRecognizerForWakeUp.Constraints.Add(
-                //    new SpeechRecognitionListConstraint(
-                //        new List<string>()
-                //        {
-                //            _speechResourceMap.GetValue("HeySandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HelloSandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HiSandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("Sandy", _speechContext).ValueAsString
-                //        }, "Sandy"));
-                //_speechRecognizerForWakeUp.Constraints.Add(
-                //                    new SpeechRecognitionListConstraint(
-                //                        new List<string>()
-                //                        {
-                //            _speechResourceMap.GetValue("HeyMandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HelloMandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HiMandy", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("Mandy", _speechContext).ValueAsString
-                //                        }, "Mandy"));
-                //_speechRecognizerForWakeUp.Constraints.Add(
-                //                                    new SpeechRecognitionListConstraint(
-                //                                        new List<string>()
-                //                                        {
-                //            _speechResourceMap.GetValue("HeySady", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HelloSady", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("HiSady", _speechContext).ValueAsString,
-                //            _speechResourceMap.GetValue("Sady", _speechContext).ValueAsString
-                //                                        }, "Sady"));
-
-                ////var grammar = new SpeechRecognitionTopicConstraint(SpeechRecognitionScenario.Dictation, "SmartSounder");
-                ////_speechRecognizer.Constraints.Add(grammar);
-
-                //SpeechRecognitionCompilationResult compilationResult = await _speechRecognizerForWakeUp.CompileConstraintsAsync();
-                //if (compilationResult.Status != SpeechRecognitionResultStatus.Success)
-                //{
-                //    string status = "Compile Grammar failed!";
-                //    UpdateStatus(status, false);
-                //}
-                //else
-                //{
-                //    _speechRecognizerForWakeUp.HypothesisGenerated += _speechRecognizer_HypothesisGenerated;
-                //    _speechRecognizerForWakeUp.ContinuousRecognitionSession.Completed += ContinuousRecognitionSession_Completed;
-                //    //_speechRecognizerForWakeUp.ContinuousRecognitionSession.ResultGenerated += ContinuousRecognitionSession_ResultGenerated;
-
-                //    await _speechRecognizerForWakeUp.ContinuousRecognitionSession.StartAsync(SpeechContinuousRecognitionMode.Default);
-                //}
+                AddEventHandler();
                 await WakeUpSpeechRecognizer.StartAsync();
             }
             catch (Exception ex)
@@ -849,6 +793,14 @@ namespace SmartSounder.ViewModel
             }
         }
 
+        private async Task DisposeRecognizer()
+        {
+            await CommandSpeechRecognizer.StopAsync();
+            await WakeUpSpeechRecognizer.StopAsync();
+            RemoveEventHandler();
+            CommandSpeechRecognizer.Dispose();
+            WakeUpSpeechRecognizer.Dispose();
+        }
 
         /// <summary>
         /// 执行playmusic命令
@@ -951,9 +903,9 @@ namespace SmartSounder.ViewModel
             try
             {
 
-                if (queryResponse.intents.Count() != 0)
+                if (queryResponse.topScoringIntent != null)
                 {
-                    Intent intent = queryResponse.intents[0];
+                    Intent intent = queryResponse.topScoringIntent;
                     var intentType = IntelligentServiceHelper.GetIntentType(intent);
                     Log("意图：" + intentType.ToString());
 
@@ -962,6 +914,10 @@ namespace SmartSounder.ViewModel
                     {
                         switch (intentType)
                         {
+                            case IntentType.SwitchLanguage:
+                                Log("Intent:" + IntentType.SwitchLanguage.ToString());
+                                //ChangeLanguage(queryResponse);
+                                break;
                             case IntentType.SetAlarm:
                                 //To-Do: 设置闹钟
                                 SetAlarm(queryResponse);
@@ -1090,6 +1046,33 @@ namespace SmartSounder.ViewModel
             catch (Exception ex)
             {
                 throw new Exception(utterance, ex);
+            }
+        }
+
+        private async void ChangeLanguage(QueryResponse queryResponse)
+        {
+            await this.DisposeRecognizer();
+            var lanEntity = queryResponse.entities.FirstOrDefault(p => p.type == "sounder.settings.language");
+            if (lanEntity != null)
+            {
+                Language lan = null;
+                if (lanEntity.entity.ToLower().Equals(AppResources.English))
+                {
+                    lan = new Language("en-us");
+                }
+                else if (lanEntity.entity.ToLower().Equals(AppResources.Chinese))
+                {
+                    lan = new Language("zh-ch");
+                }
+                if (lan != null && lan.NativeName != _languages[_selectedLanguageIndex].NativeName)
+                {
+                    DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                    {
+                        SelectedLanguageIndex = Math.Abs(SelectedLanguageIndex - 1);
+                    });
+                }
+                AppSettings.SetValue(AppSettingsConstants.LANGUAGE_SETTING, _languages[_selectedLanguageIndex].LanguageTag);
+                await InitializeRecognizer();
             }
         }
 
@@ -1326,12 +1309,7 @@ namespace SmartSounder.ViewModel
                 catchedSomething = false;
                 SpeechAndMusicResetEvent.Reset();
                 //rec.ContinuousRecognitionSession.AutoStopSilenceTimeout = new TimeSpan(200);
-                try
-                {
-                    //await _speechRecognizerForCommand.ContinuousRecognitionSession.StartAsync();
-                    await CommandSpeechRecognizer.StartAsync();
-                }
-                catch { }
+
                 //var result = await rec.RecognizeAsync();
 
 
@@ -1355,7 +1333,12 @@ namespace SmartSounder.ViewModel
 
             //var result = DualSpeeckRecResetEvent.WaitOne();
             //await sender.StartAsync(SpeechContinuousRecognitionMode.Default);
-
+            try
+            {
+                //await _speechRecognizerForCommand.ContinuousRecognitionSession.StartAsync();
+                await CommandSpeechRecognizer.StartAsync();
+            }
+            catch { }
         }
 
         Task t;
@@ -1511,6 +1494,7 @@ namespace SmartSounder.ViewModel
             _mainDataService = mainDataService;
             this._navigationService = navigationService;
 
+            ApplicationLanguages.PrimaryLanguageOverride = AppSettingsConstants.CurrentLanguage;
             InitializeLocalMedia();
             Initialize();
         }
@@ -1534,17 +1518,5 @@ namespace SmartSounder.ViewModel
         }
 
         #endregion
-        public void Dispose()
-        {
-            //if (_speechRecognizerForWakeUp != null)
-            //{
-            //    _speechRecognizerForWakeUp.Dispose();
-            //    _speechRecognizerForWakeUp = null;
-
-            //    _speechRecognizerForCommand.Dispose();
-            //    _speechRecognizerForCommand = null;
-
-            //}
-        }
     }
 }

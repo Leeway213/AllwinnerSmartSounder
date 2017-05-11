@@ -129,8 +129,14 @@
   <data name="cannot_find_any_music_requred" xml:space="preserve">
     <value>Sorry! Cannot find any music that you want</value>
   </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>chinese</value>
+  </data>
   <data name="city_is_unknown" xml:space="preserve">
     <value>Sorry, the city of {0} is unknown!</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>english</value>
   </data>
   <data name="network_failed" xml:space="preserve">
     <value>Hi! I am AllWinner Smart Sounder. I cannot visit internet now. Would you like to connect? Yes or No?</value>

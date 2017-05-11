@@ -23,7 +23,6 @@ namespace SmartSounder.Tools
                 {
                     var language = SpeechRecognizer.SystemSpeechLanguage.LanguageTag;
                     AppSettings.SetValue(LANGUAGE_SETTING, language);
-                    return SpeechRecognizer.SystemSpeechLanguage.LanguageTag;
                 }
                 return AppSettings.GetValue(LANGUAGE_SETTING) as string;
             }

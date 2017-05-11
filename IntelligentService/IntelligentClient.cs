@@ -50,11 +50,8 @@ namespace IntelligentService
 
             url.Append(CurrentClient.BaseAddress);
 
-            url.Append(CurrentClient.BaseAddress.Contains("?") ?
-                "&" : "?");
-
-            url.Append("id=").Append(appId).
-                Append("&subscription-key=").Append(Constants.SUBSCRIPTION_KEY).
+            url.Append(appId).
+                Append("?subscription-key=").Append(Constants.SUBSCRIPTION_KEY).
                 Append("&q=").Append(queryStr);
 
             uri = new Uri(url.ToString(), UriKind.Absolute);

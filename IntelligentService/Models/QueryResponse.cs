@@ -10,7 +10,7 @@ namespace IntelligentService.Models
         public string query { get; set; }
 
         [DataMember]
-        public Intent[] intents { get; set; }
+        public Intent topScoringIntent { get; set; }
 
         [DataMember]
         public Entity[] entities { get; set; }

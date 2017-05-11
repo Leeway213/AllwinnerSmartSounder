@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
+using Windows.Globalization;
 using Windows.Media.SpeechRecognition;
 
 namespace SmartSounder.Tools.SpeechRecognizers
@@ -17,6 +18,14 @@ namespace SmartSounder.Tools.SpeechRecognizers
         protected SpeechRecognizer _recognizer;
         public ResourceMap ResourceMap;
         public ResourceContext ResourceContext;
+
+        public Language CurrentLanguage
+        {
+            get
+            {
+                return new Language(AppSettingsConstants.CurrentLanguage);
+            }
+        }
 
         public SpeechRecognizerState State
         {
@@ -33,15 +42,21 @@ namespace SmartSounder.Tools.SpeechRecognizers
         protected SpeechRecognizerBase(string speechResource)
         {
             _resetEvent = new AutoResetEvent(false);
-            _recognizer = new SpeechRecognizer();
+            _recognizer = new SpeechRecognizer(CurrentLanguage);
             DispatcherHelper.CheckBeginInvokeOnUI(() =>
             {
                 ResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree(speechResource);
                 ResourceContext = ResourceContext.GetForCurrentView();
-                ResourceContext.Languages = new string[] { SpeechRecognizer.SystemSpeechLanguage.LanguageTag };
+                ResourceContext.Languages = new string[] { _recognizer.CurrentLanguage.LanguageTag };
 
                 _resetEvent.Set();
             });
+        }
+
+        public void BaseDispose()
+        {
+            _resetEvent?.Dispose();
+            _recognizer?.Dispose();
         }
 
         protected SpeechRecognizerBase()

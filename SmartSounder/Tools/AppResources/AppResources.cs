@@ -90,5 +90,21 @@ namespace SmartSounder.Tools.AppResources
                 return GetString("umbrella");
             }
         }
+
+        public static string Chinese
+        {
+            get
+            {
+                return GetString("Chinese");
+            }
+        }
+
+        public static string English
+        {
+            get
+            {
+                return GetString("English");
+            }
+        }
     }
 }
